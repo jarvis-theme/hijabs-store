@@ -1,5 +1,4 @@
-<!-- <div id="tagline"><section><h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</h2></section></div> -->
-
+<style type="text/css">.banner{text-align: center}.product .post-image{min-height: 248px}</style>
 <div id="popular">
     <section>
         <h2>Top <span>Produk</span></h2>
@@ -7,18 +6,11 @@
             <a href="{{url('produk')}}"><i class="fi-list-bullet"></i> Lihat</a>
         </div>
         <ul class="products">
-            @foreach(home_product() as $home)
+            @foreach(best_seller() as $home)
             <li class="product">
                 <div class="post-image">
-                    <a href="{{product_url($home)}}"><img width="300" height="365" src="{{url(product_image_url($home->gambar1, 'medium'))}}" alt="{{short_description($home->nama, 10)}}"></a>
+                    <a href="{{product_url($home)}}"><img width="300" height="365" src="{{url(product_image_url($home->gambar1, 'medium'))}}" alt="{{short_description($home->nama, 15)}}"></a>
                 </div>
-                @if(is_outstok($home))
-                <span class="sold">Kosong</span>
-                @elseif(is_terlaris($home))
-                <span class="hot">Terlaris</span>
-                @elseif(is_produkbaru($home))
-                <span class="new">Terbaru</span>
-                @endif
                 <div class="product-detail">
                     <h4 class="post-title"><a href="{{product_url($home)}}">{{short_description($home->nama, 21)}}</a></h4>
                     <span class="price">
@@ -37,7 +29,7 @@
 
 <div id="newproduct">
     <section>
-        <h2>Produk <span>Terbaru</span></h2>
+        <h2>Koleksi <span>Produk</span></h2>
         <div class="more">
             <a href="{{url('produk')}}"><i class="fi-list-bullet"></i> Lihat</a>
         </div>
@@ -45,8 +37,15 @@
             @foreach(latest_product() as $latest)
             <li class="product">
                 <div class="post-image">
-                    <a href="{{product_url($latest)}}"><img width="300" height="365" src="{{url(product_image_url($latest->gambar1,'medium'))}}" alt="{{short_description($latest->nama, 10)}}"></a>
+                    <a href="{{product_url($latest)}}"><img width="300" height="365" src="{{url(product_image_url($latest->gambar1,'medium'))}}" alt="{{short_description($latest->nama, 15)}}"></a>
                 </div>
+                @if(is_outstok($latest))
+                <span class="sold">Kosong</span>
+                @elseif(is_terlaris($latest))
+                <span class="hot">Terlaris</span>
+                @elseif(is_produkbaru($latest))
+                <span class="new">Terbaru</span>
+                @endif
                 <div class="product-detail">
                     <h4 class="post-title"><a href="{{product_url($latest)}}">{{short_description($latest->nama, 21)}}</a></h4>
                     <span class="price"><span class="amount">{{price($latest->hargaJual)}}</span></span>
@@ -55,5 +54,14 @@
             </li>
             @endforeach
         </ul>
+    </section>
+</div>
+<div class="banner">
+    <section>
+        @foreach(horizontal_banner() as $banners)
+        <a href="{{URL::to($banners->url)}}">
+            {{HTML::image(banner_image_url($banners->gambar),'Info',array('class'=>'img-responsive'))}}
+        </a>
+        @endforeach
     </section>
 </div>

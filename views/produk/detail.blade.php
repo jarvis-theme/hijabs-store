@@ -1,3 +1,4 @@
+<style type="text/css">.thumb{display: inline}.thumb .fancybox img{margin-top: 10px}.narrow{width: 50% !important; display: inline}</style>
 <div id="tagline" class="title tleft"><section><h2>{{short_description($produk->nama, 50)}}</h2></section></div>
 
 <section>
@@ -41,7 +42,6 @@
         </aside>
         <article>
             <div class="breadcrumb">
-                <!-- <a href="{{url('home')}}">Home</a> -->
                 {{breadcrumbProduk(null,';',';', true, $produk)}}
             </div>
             <div class="single-item middle">
@@ -49,9 +49,30 @@
                     <ul>
                         <li class="product">
                             <div class="post-image">
-                                <a href="#"><img width="300" height="365" src="{{product_image_url($produk->gambar1)}}"></a>
+                                <a class="fancybox" title="{{$produk->nama}}" href="{{product_image_url($produk->gambar1,'large')}}"><img width="300" height="365" src="{{product_image_url($produk->gambar1, 'medium')}}" alt="{{short_description($produk->nama, 15)}}"></a>
                             </div>
                         </li>
+                        @if($produk->gambar2 != '')
+                        <li class="thumb">
+                            <a class="fancybox" href="{{product_image_url($produk->gambar2,'large')}}" title="{{$produk->nama}}">
+                                {{HTML::image(product_image_url($produk->gambar2,'thumb'),short_description($produk->nama, 15),array('width'=>'30%'))}}
+                            </a>
+                        </li>
+                        @endif
+                        @if($produk->gambar3 != '')
+                        <li class="thumb">
+                            <a class="fancybox" href="{{product_image_url($produk->gambar3,'large')}}" title="{{$produk->nama}}">
+                                {{HTML::image(product_image_url($produk->gambar3,'thumb'),short_description($produk->nama, 15),array('width'=>'30%'))}}
+                            </a>
+                        </li>
+                        @endif
+                        @if($produk->gambar4 != '')
+                        <li class="thumb">
+                            <a class="fancybox" href="{{product_image_url($produk->gambar4,'large')}}" title="{{$produk->nama}}">
+                                {{HTML::image(product_image_url($produk->gambar4,'thumb'),short_description($produk->nama, 15),array('width'=>'30%'))}}
+                            </a>
+                        </li>
+                        @endif
                     </ul>
                 </article>
                 <article>
@@ -64,9 +85,6 @@
                         @endif
                         <ins><span class="amount">{{price($produk->hargaJual)}}</span></ins>
                     </p>
-                    <div class="desc">
-                        <p>{{short_description($produk->deskripsi, 200)}}</p>
-                    </div>
                     <form class="cart" method="post" enctype="multipart/form-data" action="#" id="addorder">
                         @if($opsiproduk->count() > 0)
                         <label class="col-sm-4 control-label">Opsi :</label>
@@ -81,9 +99,11 @@
                         @endif
                         <li class="append field">
                             <input class="narrow text input" type="number" min="1" value="1" name="qty">
-                            <!-- <div class="medium primary btn icon-left icon-basket"><a href="#">Add to cart</a></div> -->
                             <button class="main" type="submit">Add to cart</button>
                         </li>
+                        <div class="desc">
+                            {{sosialShare(product_url($produk))}}
+                        </div>
                     </form>
                 </article>
             </div>
@@ -93,7 +113,7 @@
                     <div class="tab-content"><p>{{$produk->deskripsi}}</p></div>
                 </li>
                 <li class="tab-header-and-content">
-                    <a href="#" class="tab-link">Spec</a>
+                    <a href="#" class="tab-link">Detail</a>
                     <div class="tab-content">
                         <ul>
                             <li>Berat: {{$produk->berat}} gram</li>

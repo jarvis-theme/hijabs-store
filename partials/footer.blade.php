@@ -6,17 +6,17 @@
     </div>
     <div class="footer-links">
         @foreach($tautan as $key=>$menu)
-        <ul>
             @if($key == '1' || $key == '2')
-            <li><h3>{{$menu->nama}}</h4>
-                @foreach($quickLink as $link_menu)
-                    @if($menu->id == $link_menu->tautanId)
-                    <li><a href="{{menu_url($link_menu)}}">{{$link_menu->nama}}</a></li>
-                    @endif
-                @endforeach
-            </li>
+            <ul>
+                <li><h3>{{$menu->nama}}</h3>
+                    @foreach($quickLink as $link_menu)
+                        @if($menu->id == $link_menu->tautanId)
+                        <li><a href="{{menu_url($link_menu)}}">{{$link_menu->nama}}</a></li>
+                        @endif
+                    @endforeach
+                </li>
+            </ul>
             @endif
-        </ul>
         @endforeach
         
         <ul>
@@ -32,6 +32,9 @@
             @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
             <li><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" /></li>
             @endif
+        </ul>
+        <ul>
+            <li>{{ Theme::partial('subscribe') }}</li>
         </ul>
     </div>
 

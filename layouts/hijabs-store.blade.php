@@ -8,8 +8,8 @@
 <!--<![endif]-->
     <head>
         {{ Theme::partial('seostuff') }}    
-        {{ Theme::partial('defaultcss') }}  
         {{ Theme::asset()->styles() }}  
+        {{ Theme::partial('defaultcss') }}  
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -21,8 +21,6 @@
         {{ Theme::partial('footer') }}  
 
         {{ Theme::partial('defaultjs') }}   
-        {{ Theme::asset()->scripts() }}
-        {{ Theme::asset()->container('footer')->scripts() }}
         {{ Theme::partial('analytic') }}    
     </body>
 </html>

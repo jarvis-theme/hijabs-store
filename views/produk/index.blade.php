@@ -1,3 +1,4 @@
+<style type="text/css">.product .post-image{min-height: 241px}</style>
 <div id="tagline" class="title tleft"><section><h2>List Produk</h2></section></div>
 
 <section>
@@ -41,7 +42,6 @@
         </aside>
         <article>
             <div class="breadcrumb">
-                <!-- <a href="{{url('home')}}">Home</a> -->
                 {{breadcrumbProduk(null,';',';', true, $kategoridetail)}}
             </div>
             <section>
@@ -49,7 +49,7 @@
                     @foreach(list_product(null, @$category) as $product)
                     <li class="product items">
                         <div class="post-image">
-                            <a href="{{product_url($product)}}"><img width="300" height="365" src="{{url(product_image_url($product->gambar1, 'medium'))}}" alt="{{short_description($product->nama,10)}}"></a>
+                            <a href="{{product_url($product)}}"><img width="300" height="365" src="{{url(product_image_url($product->gambar1, 'medium'))}}" alt="{{short_description($product->nama,15)}}"></a>
                             @if(is_outstok($product))
                             <span class="sold">Kosong</span>
                             @elseif(is_terlaris($product))

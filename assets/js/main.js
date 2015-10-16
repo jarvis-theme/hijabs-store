@@ -130,4 +130,12 @@
             return $(target).slideToggle('fast');
         });
     });
+
+    $('.fancybox').fancybox({
+        padding: 10,
+        openEffect : 'elastic',
+        openSpeed  : 150,
+        closeEffect : 'elastic',
+        closeSpeed  : 150
+    });
 }).call(this);

@@ -17,7 +17,7 @@
                         </li>
                         <li class="field">
                             <label for="message">Pesan</label>
-                            <textarea class="input textarea" id="message" rows="3" name="messageKontak" required></textarea>
+                            <textarea class="input textarea" rows="3" name="messageKontak" required></textarea>
                         </li>
                     </ul>
                     <div class="medium metro rounded btn primary"><button class="main">Kirim</button></div>

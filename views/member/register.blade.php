@@ -1,5 +1,5 @@
 <div id="tagline" class="title tleft"><section><h2>Register</h2></section></div>
-  
+
 <section class="page">
     <aside>
         <ul class="accordion">
@@ -84,7 +84,7 @@
                     <label class="mheight" for="text2"><strong>Alamat</strong></label>
                 </div>
                 <div>
-                    <textarea class="input textarea" id="message" rows="3" name="alamat" required>{{Input::old("alamat")}}</textarea>
+                    <textarea class="input textarea" rows="3" name="alamat" required></textarea>
                 </div>
             </div>
             <div class="field row">

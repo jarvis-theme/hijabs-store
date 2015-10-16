@@ -1,4 +1,4 @@
-<style type="text/css">.line{border-top: solid 1px #eee;margin-bottom: 15px}</style>
+<style type="text/css">.line{border-top: solid 1px #eee;margin-bottom: 15px}.product .post-image{min-height: 241px}</style>
 <div id="tagline" class="title tleft"><section><h2>Hasil Pencarian</h2></section></div>
 
 <section>
@@ -11,7 +11,7 @@
                         @foreach($hasilpro as $listproduk)
                         <li class="product items">
                             <div class="post-image">
-                                <a href="{{product_url($listproduk)}}">{{HTML::image(product_image_url($listproduk->gambar1,'medium'), short_description($listproduk->nama, 10), array("height"=>"365", "width"=>"300"))}}</a>
+                                <a href="{{product_url($listproduk)}}">{{HTML::image(product_image_url($listproduk->gambar1,'medium'), short_description($listproduk->nama, 15), array("height"=>"365", "width"=>"300"))}}</a>
                                 @if(is_outstok($listproduk))
                                 <span class="sold">Kosong</span>
                                 @elseif(is_terlaris($listproduk))
@@ -64,7 +64,7 @@
             @foreach(vertical_banner() as $banners)
             <div id="advertising">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'Info',array('width'=>'272','height'=>'391','class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach
