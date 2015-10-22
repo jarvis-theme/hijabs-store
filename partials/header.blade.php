@@ -30,7 +30,6 @@
         </nav>
     </div>
 
-    <!-- logo -->
     @if(@getimagesize(url(logo_image_url())))
     <div class="logo">
         <a href="{{url('home')}}">
@@ -45,17 +44,14 @@
     </h1>
     @endif
 
-    <!-- main menu -->
     <nav class="main">
         <div class="centered-navigation" role="banner">
             <div class="centered-navigation-wrapper">
-                <!-- responsive logo -->
                 <div id="resp-logo">
                     <a href="/"><span>{{ short_description(Theme::place('title'),30) }}</span></a>
                 </div>
                 <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" class="centered-navigation-mobile-menu"> <i class="fi-list-bullet"></i>  MENU</a>
 
-                <!-- list main menu -->
                 <nav role="navigation">
                     <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
                         @foreach(main_menu()->link as $menu)

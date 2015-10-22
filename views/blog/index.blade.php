@@ -1,6 +1,4 @@
-<div id="tagline" class="title tleft">
-    <section><h2>Blog</h2></section>
-</div>
+<div id="tagline" class="title tleft"><section><h2>Blog</h2></section></div>
     
 <section class="blog">
     <article>
