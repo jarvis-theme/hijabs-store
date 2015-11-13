@@ -1,4 +1,3 @@
-<style type="text/css">.break{word-wrap: break-word; padding-right: 6px}.konfirmasi{text-align: center}</style>
 <div id="tagline" class="title tleft"><section><h2>Member Area</h2></section></div>
   
 <section class="page">

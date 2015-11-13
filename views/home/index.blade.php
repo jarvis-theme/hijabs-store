@@ -1,4 +1,3 @@
-<style type="text/css">.banner{text-align: center}.product .post-image{min-height: 248px}</style>
 <div id="popular">
     <section>
         <h2>Top <span>Produk</span></h2>
@@ -34,7 +33,7 @@
             <a href="{{url('produk')}}"><i class="fi-list-bullet"></i> Lihat</a>
         </div>
         <ul>
-            @foreach(latest_product() as $latest)
+            @foreach(home_product() as $latest)
             <li class="product">
                 <div class="post-image">
                     <a href="{{product_url($latest)}}"><img width="300" height="365" src="{{url(product_image_url($latest->gambar1,'medium'))}}" alt="{{short_description($latest->nama, 15)}}"></a>
@@ -60,7 +59,7 @@
     <section>
         @foreach(horizontal_banner() as $banners)
         <a href="{{URL::to($banners->url)}}">
-            {{HTML::image(banner_image_url($banners->gambar),'Info',array('class'=>'img-responsive'))}}
+            {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
         </a>
         @endforeach
     </section>

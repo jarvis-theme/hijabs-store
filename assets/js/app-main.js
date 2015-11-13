@@ -46,11 +46,9 @@ require([
 	'jquery',
 	'router',
 	'cart',
-	'noty_util',
 	'main'
-], function($,router,cart,noty,main){
+], function($,router,cart,main){
 	router.run();
-	noty.run();
 	cart.run();
 	main.run();
 });

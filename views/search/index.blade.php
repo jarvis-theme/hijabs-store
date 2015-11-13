@@ -1,4 +1,3 @@
-<style type="text/css">.line{border-top: solid 1px #eee;margin-bottom: 15px}.product .post-image{min-height: 241px}</style>
 <div id="tagline" class="title tleft"><section><h2>Hasil Pencarian</h2></section></div>
 
 <section>
@@ -54,9 +53,7 @@
                     </div>
                     @endif
                 @else
-                    <article >
-                        <i>Hasil pencarian tidak ditemukan</i>
-                    </article>
+                    <article><i>Hasil pencarian tidak ditemukan</i></article>
                 @endif
             </section>
         </article>
@@ -64,7 +61,7 @@
             @foreach(vertical_banner() as $banners)
             <div id="advertising">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'Info',array('class'=>'img-responsive'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
                 </a>
             </div>
             @endforeach

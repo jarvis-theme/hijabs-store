@@ -5,11 +5,12 @@
         </a>
     </div>
     <div class="footer-links">
-        @foreach($tautan as $key=>$menu)
+        @foreach(all_menu() as $key=>$menu)
             @if($key == '1' || $key == '2')
             <ul>
-                <li><h3>{{$menu->nama}}</h3>
-                    @foreach($quickLink as $link_menu)
+                <li>
+                    <h3>{{$menu->nama}}</h3>
+                    @foreach($menu->link as $link_menu)
                         @if($menu->id == $link_menu->tautanId)
                         <li><a href="{{menu_url($link_menu)}}">{{$link_menu->nama}}</a></li>
                         @endif
@@ -22,15 +23,18 @@
         <ul>
             <li><h3>Pembayaran</h3></li>
             @foreach(list_banks() as $value)
-                <li><img src="{{bank_logo($value)}}" alt="payment" /></li>
+                <li><img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="Payment" /></li>
             @endforeach
             @foreach(list_payments() as $pay)
                 @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                <li><img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" /></li>
+                <li><img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Payment" /></li>
+                @endif
+                @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
+                <li><img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" /></li>
                 @endif
             @endforeach
             @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-            <li><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" /></li>
+            <li><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" /></li>
             @endif
         </ul>
         <ul>

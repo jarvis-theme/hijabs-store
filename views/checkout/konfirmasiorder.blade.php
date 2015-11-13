@@ -1,4 +1,3 @@
-<style type="text/css">.detail{margin-left: 8px}</style>
 <div id="tagline" class="title tleft"><section><h2>Konfirmasi Order</h2></section></div>
 
 <section>
@@ -85,40 +84,40 @@
         <div class="row">
             <div class="col-md-5">
             @if($order->jenisPembayaran==1)
-                @if($checkouttype==1)                         
-                {{Form::open(array('url'=> 'konfirmasiorder/'.$order->id, 'method'=>'put'))}}                            
-                
+                @if($checkouttype==1)   
+                {{-- */ $linkurl = 'konfirmasiorder' /* --}}  
                 @else                         
-                {{Form::open(array('url'=> 'konfirmasipreorder/'.$order->id, 'method'=>'put'))}}                           
+                {{-- */ $linkurl = 'konfirmasipreorder' /* --}}  
                 @endif
+                {{Form::open(array('url'=> $linkurl.$order->id, 'method'=>'put'))}} 
                 <div class="form-group">
-                  <label  class="control-label"> Nama Pengirim:</label>
-                  <input type="text" class="form-control" placeholder="Nama Pengirim" name='nama' required>
+                    <label  class="control-label"> Nama Pengirim:</label>
+                    <input type="text" class="form-control" placeholder="Nama Pengirim" name='nama' required>
                 </div>
                 <div class="form-group">
-                  <label  class="control-label"> No Rekening:</label>
-                  <input type="text" class="form-control" placeholder="No Rekening" name='noRekPengirim' required>
+                    <label  class="control-label"> No Rekening:</label>
+                    <input type="text" class="form-control" placeholder="No Rekening" name='noRekPengirim' required>
                 </div>
                 <div class="form-group">
-                  <label  class="control-label"> Rekening Tujuan:</label>
-                  <select name='bank' class="form-control">
-                      <option value=''>-- Pilih Bank Tujuan --</option>
-                      @foreach ($banktrans as $bank)
-                      <option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
-                      @endforeach
-                  </select>
+                    <label  class="control-label"> Rekening Tujuan:</label>
+                    <select name='bank' class="form-control">
+                        <option value=''>-- Pilih Bank Tujuan --</option>
+                        @foreach ($banktrans as $bank)
+                        <option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
-                  <label  class="control-label"> Jumlah:</label>
-                  @if($checkouttype==1)        
+                    <label  class="control-label"> Jumlah:</label>
+                    @if($checkouttype==1)        
                     <input type="text" class="form-control" placeholder="jumlah yg terbayar" name='jumlah' value='{{$order->status==0 ? $order->total : ""}}' required>
-                  @else
-                    @if($order->status < 2)
-                      <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->dp}}' required>
-                    @elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
-                      <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->total - $order->dp}}' required>
+                    @else
+                        @if($order->status < 2)
+                        <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->dp}}' required>
+                        @elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
+                        <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->total - $order->dp}}' required>
+                        @endif
                     @endif
-                  @endif
                 </div>
                 <button type="submit" class="btn btn-warning">Konfirmasi Order</button>
                 {{Form::close()}}
@@ -130,39 +129,48 @@
         <h3><center>Paypal Payment Details</center></h3><br>
         <hr>
         <div class="table-responsive">
-          <table class='table table-bordered'>
-              <tr>
-                  <td>Payment Status</td><td>:</td><td>{{$paymentinfo['payment_status']}}</td>
-              </tr>
-              <tr>
-                  <td>Payment Date</td><td>:</td><td>{{$paymentinfo['payment_date']}}</td>
-              </tr>
-              <tr>
-                  <td>Address Name</td><td>:</td><td>{{$paymentinfo['address_name']}}</td>
-              </tr>
-              <tr>
-                  <td>Payer Email</td><td>:</td><td>{{$paymentinfo['payer_email']}}</td>
-              </tr>
-              <tr>
-                  <td>Item Name</td><td>:</td><td>{{$paymentinfo['item_name1']}}</td>
-              </tr>
-              <tr>
-                  <td>Receiver Email</td><td>:</td><td>{{$paymentinfo['receiver_email']}}</td>
-              </tr>
-              <tr>
-                  <td>Total Payment</td><td>:</td><td>{{$paymentinfo['payment_gross']}} {{$paymentinfo['mc_currency']}}</td>
-              </tr>
-          </table>
+            <table class='table table-bordered'>
+                <tr>
+                    <td>Payment Status</td><td>:</td><td>{{$paymentinfo['payment_status']}}</td>
+                </tr>
+                <tr>
+                    <td>Payment Date</td><td>:</td><td>{{$paymentinfo['payment_date']}}</td>
+                </tr>
+                <tr>
+                    <td>Address Name</td><td>:</td><td>{{$paymentinfo['address_name']}}</td>
+                </tr>
+                <tr>
+                    <td>Payer Email</td><td>:</td><td>{{$paymentinfo['payer_email']}}</td>
+                </tr>
+                <tr>
+                    <td>Item Name</td><td>:</td><td>{{$paymentinfo['item_name1']}}</td>
+                </tr>
+                <tr>
+                    <td>Receiver Email</td><td>:</td><td>{{$paymentinfo['receiver_email']}}</td>
+                </tr>
+                <tr>
+                    <td>Total Payment</td><td>:</td><td>{{$paymentinfo['payment_gross']}} {{$paymentinfo['mc_currency']}}</td>
+                </tr>
+            </table>
         </div>
         <p>Thanks you for your order.</p>
         <br>
         @endif 
       
         @if($order->jenisPembayaran==2)
-          <h3><center>Konfirmasi Pemabayaran Via Paypal</center></h3><br>
-          <p>Silakan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum {{$expired}}. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
-          {{$paypalbutton}}
-          <br>
+            @if($order->status != 2)
+            <h3><center>Konfirmasi Pembayaran Via Paypal</center></h3><br>
+            <p>Silahkan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired}}</b>. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
+            {{$paypalbutton}}
+            <br>
+            @endif
+        @elseif($order->jenisPembayaran==6)
+            @if($order->status == 0)
+            <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
+            <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
+            {{$bitcoinbutton}}
+            <br>
+            @endif
         @endif
     </article>
 </section>

@@ -1,4 +1,3 @@
-<style type="text/css">@media screen and (min-width: 53.75em){.testi{width: 67% !important}.create-testi{width: 30% !important}.create-testi article{width: 100%}}.line{border-top: solid 1px #eee;margin-bottom: 15px}</style>
 <div id="tagline" class="title tleft"><section><h2>Testimonial</h2></section></div>
     
 <section class="blog">

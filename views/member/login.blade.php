@@ -6,7 +6,7 @@
             <div class="title"><h2>Pelanggan Baru</h2></div>
             <div class="address">
                 <p>Nikmati kemudahan berbelanja dengan mendaftar sebagai member. Cepat dan mudah dalam bertransaksi. Mudah untuk mengetahui status dan riwayat order kamu.</p>
-                <a href="{{url('member/create')}}">Daftar</a>
+                <a class="btn btn-info" href="{{url('member/create')}}">Daftar</a>
             </div>
         </article>
         <article>

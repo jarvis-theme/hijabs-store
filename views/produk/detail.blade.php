@@ -1,4 +1,3 @@
-<style type="text/css">.thumb{display: inline}.thumb .fancybox img{margin-top: 10px}.narrow{width: 50% !important; display: inline}</style>
 <div id="tagline" class="title tleft"><section><h2>{{short_description($produk->nama, 50)}}</h2></section></div>
 
 <section>

@@ -1,4 +1,3 @@
-<style type="text/css">.product .post-image{min-height: 241px}</style>
 <div id="tagline" class="title tleft"><section><h2>List Produk</h2></section></div>
 
 <section>

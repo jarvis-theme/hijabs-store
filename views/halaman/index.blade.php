@@ -11,7 +11,7 @@
             @foreach(vertical_banner() as $banners)
             <div id="advertising">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'Info')}}
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo')}}
                 </a>
             </div>
             @endforeach
