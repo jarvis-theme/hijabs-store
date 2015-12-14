@@ -4,7 +4,13 @@
                 @foreach(slideshow() as $slide)
                 <li>
                     <div class="slider-image">
-                        <img src="{{slide_image_url($slide->gambar)}}" alt="slideshow">
+                        @if($slide->text == "")
+                        <a href="#">
+                        @else
+                        <a href="{{filter_link_url($slide->text)}}" target="_blank">
+                        @endif
+                            <img src="{{slide_image_url($slide->gambar)}}" alt="slideshow">
+                        </a>
                         <!-- <div class="slider-content">
                             <div class="slider-desc">
                                 <h2 class="title">Made in Indonesia</h2>

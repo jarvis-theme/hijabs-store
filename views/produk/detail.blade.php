@@ -41,34 +41,34 @@
         </aside>
         <article>
             <div class="breadcrumb">
-                {{breadcrumbProduk(null,';',';', true, $produk)}}
+                {{breadcrumbProduk($produk,';',';', true)}}
             </div>
             <div class="single-item middle">
                 <article>
                     <ul>
                         <li class="product">
                             <div class="post-image">
-                                <a class="fancybox" title="{{$produk->nama}}" href="{{product_image_url($produk->gambar1,'large')}}"><img width="300" height="365" src="{{product_image_url($produk->gambar1, 'medium')}}" alt="{{short_description($produk->nama, 15)}}"></a>
+                                <a class="fancybox" title="{{$produk->nama}}" href="{{product_image_url($produk->gambar1,'large')}}"><img width="300" height="365" src="{{product_image_url($produk->gambar1, 'medium')}}" alt="{{$produk->nama}}"></a>
                             </div>
                         </li>
                         @if($produk->gambar2 != '')
                         <li class="thumb">
                             <a class="fancybox" href="{{product_image_url($produk->gambar2,'large')}}" title="{{$produk->nama}}">
-                                {{HTML::image(product_image_url($produk->gambar2,'thumb'),short_description($produk->nama, 15),array('width'=>'30%'))}}
+                                {{HTML::image(product_image_url($produk->gambar2,'thumb'),'Thumbnail 1',array('width'=>'30%'))}}
                             </a>
                         </li>
                         @endif
                         @if($produk->gambar3 != '')
                         <li class="thumb">
                             <a class="fancybox" href="{{product_image_url($produk->gambar3,'large')}}" title="{{$produk->nama}}">
-                                {{HTML::image(product_image_url($produk->gambar3,'thumb'),short_description($produk->nama, 15),array('width'=>'30%'))}}
+                                {{HTML::image(product_image_url($produk->gambar3,'thumb'),'Thumbnail 2',array('width'=>'30%'))}}
                             </a>
                         </li>
                         @endif
                         @if($produk->gambar4 != '')
                         <li class="thumb">
                             <a class="fancybox" href="{{product_image_url($produk->gambar4,'large')}}" title="{{$produk->nama}}">
-                                {{HTML::image(product_image_url($produk->gambar4,'thumb'),short_description($produk->nama, 15),array('width'=>'30%'))}}
+                                {{HTML::image(product_image_url($produk->gambar4,'thumb'),'Thumbnail 3',array('width'=>'30%'))}}
                             </a>
                         </li>
                         @endif
@@ -76,7 +76,7 @@
                 </article>
                 <article>
                     <div class="title">
-                      <h4>{{$produk->nama}}</h4>
+                      <h4>{{short_description($produk->nama,70)}}</h4>
                     </div>
                     <p class="price">
                         @if(!empty($produk->hargaCoret))
@@ -134,10 +134,10 @@
                     @foreach(other_product($produk) as $other)
                     <li class="product">
                         <div class="post-image">
-                            <a href="{{product_url($other)}}"><img width="300" height="365" src="{{product_image_url($other->gambar1, 'medium')}}" alt="{{short_description($other->nama,10)}}"></a> 
+                            <a href="{{product_url($other)}}"><img width="300" height="365" src="{{product_image_url($other->gambar1, 'medium')}}" alt="{{$other->nama}}"></a> 
                         </div>
                         <div class="product-detail">
-                            <h4 class="post-title"><a href="{{product_url($other)}}">{{$other->nama}}</a></h4>
+                            <h4 class="post-title"><a href="{{product_url($other)}}">{{short_description($other->nama,30)}}</a></h4>
                             <span class="price"><span class="amount">{{price($other->hargaJual)}}</span></span>         
                         </div>
                     </li>

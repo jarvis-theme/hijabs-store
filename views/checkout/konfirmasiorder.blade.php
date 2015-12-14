@@ -92,30 +92,30 @@
                 {{Form::open(array('url'=> $linkurl.$order->id, 'method'=>'put'))}} 
                 <div class="form-group">
                     <label  class="control-label"> Nama Pengirim:</label>
-                    <input type="text" class="form-control" placeholder="Nama Pengirim" name='nama' required>
+                    <input type="text" class="form-control" placeholder="Nama Pengirim" name="nama" required>
                 </div>
                 <div class="form-group">
                     <label  class="control-label"> No Rekening:</label>
-                    <input type="text" class="form-control" placeholder="No Rekening" name='noRekPengirim' required>
+                    <input type="text" class="form-control" placeholder="No Rekening" name="noRekPengirim" required>
                 </div>
                 <div class="form-group">
                     <label  class="control-label"> Rekening Tujuan:</label>
-                    <select name='bank' class="form-control">
-                        <option value=''>-- Pilih Bank Tujuan --</option>
+                    <select name="bank" class="form-control">
+                        <option value="">-- Pilih Bank Tujuan --</option>
                         @foreach ($banktrans as $bank)
                         <option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
-                    <label  class="control-label"> Jumlah:</label>
+                    <label class="control-label"> Jumlah:</label>
                     @if($checkouttype==1)        
-                    <input type="text" class="form-control" placeholder="jumlah yg terbayar" name='jumlah' value='{{$order->status==0 ? $order->total : ""}}' required>
+                    <input type="text" class="form-control" placeholder="jumlah yg terbayar" name="jumlah" value="{{$order->status==0 ? $order->total : ''}}" required>
                     @else
                         @if($order->status < 2)
-                        <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->dp}}' required>
+                        <input class="form-control" placeholder="Jumlah pembayaran" type="text" name="jumlah" value="{{$order->dp}}" required>
                         @elseif(($order->status > 1 && $order->status < 4) || $order->status==7)
-                        <input class="form-control" placeholder="Jumlah pembayaran" type="text" name='jumlah' value='{{$order->total - $order->dp}}' required>
+                        <input class="form-control" placeholder="Jumlah pembayaran" type="text" name="jumlah" value="{{$order->total - $order->dp}}" required>
                         @endif
                     @endif
                 </div>

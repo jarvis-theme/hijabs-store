@@ -32,6 +32,9 @@
                 @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
                 <li><img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" /></li>
                 @endif
+                @if($pay->nama == 'paypal' && $pay->aktif == 1)
+                <li><img src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Payment" /></li>
+                @endif
             @endforeach
             @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
             <li><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" /></li>

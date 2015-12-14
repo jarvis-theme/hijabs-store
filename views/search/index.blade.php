@@ -10,7 +10,7 @@
                         @foreach($hasilpro as $listproduk)
                         <li class="product items">
                             <div class="post-image">
-                                <a href="{{product_url($listproduk)}}">{{HTML::image(product_image_url($listproduk->gambar1,'medium'), short_description($listproduk->nama, 15), array("height"=>"365", "width"=>"300"))}}</a>
+                                <a href="{{product_url($listproduk)}}">{{HTML::image(product_image_url($listproduk->gambar1,'medium'), $listproduk->nama, array("height"=>"365", "width"=>"300"))}}</a>
                                 @if(is_outstok($listproduk))
                                 <span class="sold">Kosong</span>
                                 @elseif(is_terlaris($listproduk))
@@ -47,7 +47,7 @@
                                 <i class="fi-calendar"></i> {{waktuTgl($blog->updated_at)}} <i class="fi-folder"></i> <a href="{{blog_category_url(@$blog->kategori)}}">{{@$blog->kategori->nama}}</a>
                             </div>
                             <p>{{short_description($blog->isi, 300)}}</p>
-                            <a href="{{blog_url($blog)}}" class="btn btn-info">Baca selengkapnya...</a>
+                            <a href="{{blog_url($blog)}}" class="btn btn-default">Baca selengkapnya...</a>
                             @endforeach 
                         </article>
                     </div>

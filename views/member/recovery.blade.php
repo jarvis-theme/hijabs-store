@@ -11,15 +11,20 @@
         </article>
         <article>
             <div class="respond">
-                <div class="title"><h2>Reset Password</h2></div>
-                <form action="{{url('member/forgetpassword')}}" method="post">
+                <div class="title"><h2>Update Password</h2></div>
+                <form action="{{url('member/recovery/'.$id.'/'.$code)}}" method="post">
                     <ul>
                         <li class="field">
-                            <label for="email">Email</label>
-                            <input class="email input" id="email" type="email" name="recoveryEmail" required>
+                            <label for="email">Password Baru</label>
+                            <input class="email input" type="password" name="password" required>
+                        </li>
+                        <li class="field">
+                            <label for="email">Konfirmasi Password Baru</label>
+                            <input class="email input" type="password" name="password_confirmation" required>
                         </li>
                     </ul>
-                    <div class="block"><button type="submit" class="main">Kirim</button>
+                    <div class="block">
+                        <button type="submit" class="main">Simpan</button>
                     </div>
                 </form>
             </div>

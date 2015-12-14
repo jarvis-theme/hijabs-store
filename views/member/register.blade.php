@@ -55,7 +55,7 @@
                 </div>
                 <div>
                     <div class="picker">
-                        {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old('negara'),array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"wide"))}}
+                        {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old('negara'),array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"wide", "name"=>"negara", "onchange"=>"searchProvinsi(this.value)"))}}
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 </div>
                 <div>
                     <div class="picker">
-                        {{Form::select('provinsi', array('' => '-- Pilih Provinsi --'), Input::old('provinsi'), array('required', "id"=>"provinsi", "data-rel"=>"chosen", "class"=>"wide"))}}
+                        {{Form::select('provinsi', array('' => '-- Pilih Provinsi --') + $provinsi, Input::old('provinsi'), array('required', "id"=>"provinsi", "data-rel"=>"chosen", "name"=>"provinsi", "class"=>"wide", "onchange"=>"searchKabupaten(this.value)"))}}
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 </div>
                 <div>
                     <div class="picker">
-                        {{Form::select('kota', array('' => '-- Pilih Kota --'), Input::old('kota'), array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"wide"))}}
+                        {{Form::select('kota', array('' => '-- Pilih Kota --') + $kota, Input::old('kota'), array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"wide", "name"=>"kota"))}}
                     </div>
                 </div>
             </div>

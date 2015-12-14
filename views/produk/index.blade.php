@@ -41,7 +41,7 @@
         </aside>
         <article>
             <div class="breadcrumb">
-                {{breadcrumbProduk(null,';',';', true, $kategoridetail)}}
+                {{breadcrumbProduk($produk,';',';', true, $kategoridetail)}}
             </div>
             <section>
                 <ul>

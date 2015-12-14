@@ -2,14 +2,11 @@ var dirTema = document.querySelector("meta[name='theme_path']").getAttribute('co
 
 require.config({
 	baseUrl: '/',
-    urlArgs: "v=001",
+    urlArgs: "v=002",
 	waitSeconds: 30,
 	shim: {
 		'jq_ui' : {
 			deps : ['jquery'],
-		},
-		"noty_util" : {
-			deps : ['jquery','noty'],
 		},
 		"noty" : {
 			deps : ['jquery'],
@@ -31,7 +28,6 @@ require.config({
 		cart			: 'js/shop_cart',
 		jq_ui			: 'js/jquery-ui',
 		noty			: 'js/jquery.noty',
-		noty_util		: 'js/utils/noty',
 		fancybox		: dirTema+'/assets/js/jquery.fancybox.pack',
 		unslider		: dirTema+'/assets/js/unslider.min',
 		

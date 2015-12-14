@@ -9,7 +9,7 @@
                 <i class="fi-calendar"></i> {{waktuTgl($value->updated_at)}} <i class="fi-folder"></i> <a href="{{blog_category_url(@$value->kategori)}}">{{@$value->kategori->nama}}</a>
             </div>
             <p>{{short_description($value->isi, 300)}}</p>
-            <a href="{{blog_url($value)}}" class="btn btn-info">Baca selengkapnya...</a>
+            <a href="{{blog_url($value)}}" class="btn btn-default">Baca selengkapnya...</a>
         </section>
         @endforeach
 
