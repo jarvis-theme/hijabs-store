@@ -89,7 +89,7 @@
                 @else                         
                 {{-- */ $linkurl = 'konfirmasipreorder' /* --}}  
                 @endif
-                {{Form::open(array('url'=> $linkurl.$order->id, 'method'=>'put'))}} 
+                {{Form::open(array('url'=> $linkurl.'/'.$order->id, 'method'=>'put'))}} 
                 <div class="form-group">
                     <label  class="control-label"> Nama Pengirim:</label>
                     <input type="text" class="form-control" placeholder="Nama Pengirim" name="nama" required>
