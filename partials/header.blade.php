@@ -30,7 +30,7 @@
         </nav>
     </div>
 
-    @if(@getimagesize(url(logo_image_url())))
+    @if( logo_image_url() )
     <div class="logo">
         <a href="{{url('home')}}">
             <h1 id="logo" class="image-logo">
