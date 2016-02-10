@@ -38,6 +38,9 @@
                 @endif
             @endforeach
             </ul>
+            <div class="powerup">
+                {{pluginSidePowerup()}}
+            </div>
         </aside>
         <article>
             <div class="breadcrumb">
@@ -82,7 +85,7 @@
                         @if(!empty($produk->hargaCoret))
                         <del><span class="amount">{{price($produk->hargaCoret)}}</span></del>
                         @endif
-                        <ins><span class="amount">{{price($produk->hargaJual)}}</span></ins>
+                        <span class="amount">{{price($produk->hargaJual)}}</span>
                     </p>
                     <form class="cart" method="post" enctype="multipart/form-data" action="#" id="addorder">
                         @if($opsiproduk->count() > 0)
@@ -98,7 +101,7 @@
                         @endif
                         <li class="append field">
                             <input class="narrow text input" type="number" min="1" value="1" name="qty">
-                            <button class="main" type="submit">Add to cart</button>
+                            <button class="main" type="submit">Beli</button>
                         </li>
                         <div class="desc">
                             {{sosialShare(product_url($produk))}}

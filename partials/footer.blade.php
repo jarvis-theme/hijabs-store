@@ -23,21 +23,21 @@
         <ul>
             <li><h3>Pembayaran</h3></li>
             @foreach(list_banks() as $value)
-                <li><img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="Payment" /></li>
+                <li><img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}" /></li>
             @endforeach
             @foreach(list_payments() as $pay)
                 @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-                <li><img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Payment" /></li>
+                <li><img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" /></li>
                 @endif
                 @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-                <li><img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Payment" /></li>
+                <li><img src="{{url('img/bitcoin.png')}}" alt="bitcoin" title="Bitcoin" /></li>
                 @endif
                 @if($pay->nama == 'paypal' && $pay->aktif == 1)
-                <li><img src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Payment" /></li>
+                <li><img src="{{url('img/bank/paypal.png')}}" alt="paypal" title="Paypal" /></li>
                 @endif
             @endforeach
             @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
-            <li><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Payment" /></li>
+            <li><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" /></li>
             @endif
         </ul>
         <ul>

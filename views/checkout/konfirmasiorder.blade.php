@@ -1,8 +1,8 @@
 <div id="tagline" class="title tleft"><section><h2>Konfirmasi Order</h2></section></div>
 
 <section>
-    <article>
-        <table class="table-minimal">
+    <div class="table-responsive">
+        <table class="table table-minimal">
             <thead>
                 <tr>
                     <th>Kode Order</th>
@@ -80,16 +80,19 @@
                 </tr>
             </tbody>
         </table>
-        <hr>
-        <div class="row">
-            <div class="col-md-5">
-            @if($order->jenisPembayaran==1)
-                @if($checkouttype==1)   
-                {{-- */ $linkurl = 'konfirmasiorder' /* --}}  
-                @else                         
-                {{-- */ $linkurl = 'konfirmasipreorder' /* --}}  
-                @endif
-                {{Form::open(array('url'=> $linkurl.'/'.$order->id, 'method'=>'put'))}} 
+    </div>
+    <hr>
+    <div class="table-confirmation">
+        <div class="confirmation">
+        @if($order->jenisPembayaran==1 && $order->status == 0)
+            <h1 class="confirmation-title">Konfirmasi Pembayaran</h1>
+            <hr>
+            @if($checkouttype==1)   
+            {{-- */ $linkurl = 'konfirmasiorder' /* --}}  
+            @else                         
+            {{-- */ $linkurl = 'konfirmasipreorder' /* --}}  
+            @endif
+            {{Form::open(array('url'=> $linkurl.'/'.$order->id, 'method'=>'put'))}} 
                 <div class="form-group">
                     <label  class="control-label"> Nama Pengirim:</label>
                     <input type="text" class="form-control" placeholder="Nama Pengirim" name="nama" required>
@@ -110,7 +113,7 @@
                 <div class="form-group">
                     <label class="control-label"> Jumlah:</label>
                     @if($checkouttype==1)        
-                    <input type="text" class="form-control" placeholder="jumlah yg terbayar" name="jumlah" value="{{$order->status==0 ? $order->total : ''}}" required>
+                    <input type="text" class="form-control" placeholder="Jumlah Transfer" name="jumlah" value="{{$order->status==0 ? $order->total : ''}}" required>
                     @else
                         @if($order->status < 2)
                         <input class="form-control" placeholder="Jumlah pembayaran" type="text" name="jumlah" value="{{$order->dp}}" required>
@@ -119,58 +122,57 @@
                         @endif
                     @endif
                 </div>
-                <button type="submit" class="btn btn-warning">Konfirmasi Order</button>
-                {{Form::close()}}
-            @endif
-            </div>
-        </div>
-        <br>
-        @if($paymentinfo!=null)
-        <h3><center>Paypal Payment Details</center></h3><br>
-        <hr>
-        <div class="table-responsive">
-            <table class='table table-bordered'>
-                <tr>
-                    <td>Payment Status</td><td>:</td><td>{{$paymentinfo['payment_status']}}</td>
-                </tr>
-                <tr>
-                    <td>Payment Date</td><td>:</td><td>{{$paymentinfo['payment_date']}}</td>
-                </tr>
-                <tr>
-                    <td>Address Name</td><td>:</td><td>{{$paymentinfo['address_name']}}</td>
-                </tr>
-                <tr>
-                    <td>Payer Email</td><td>:</td><td>{{$paymentinfo['payer_email']}}</td>
-                </tr>
-                <tr>
-                    <td>Item Name</td><td>:</td><td>{{$paymentinfo['item_name1']}}</td>
-                </tr>
-                <tr>
-                    <td>Receiver Email</td><td>:</td><td>{{$paymentinfo['receiver_email']}}</td>
-                </tr>
-                <tr>
-                    <td>Total Payment</td><td>:</td><td>{{$paymentinfo['payment_gross']}} {{$paymentinfo['mc_currency']}}</td>
-                </tr>
-            </table>
-        </div>
-        <p>Thanks you for your order.</p>
-        <br>
-        @endif 
-      
-        @if($order->jenisPembayaran==2)
-            @if($order->status != 2)
-            <h3><center>Konfirmasi Pembayaran Via Paypal</center></h3><br>
-            <p>Silahkan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired}}</b>. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
-            {{$paypalbutton}}
-            <br>
-            @endif
-        @elseif($order->jenisPembayaran==6)
-            @if($order->status == 0)
-            <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
-            <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
-            {{$bitcoinbutton}}
-            <br>
-            @endif
+                <button type="submit" class="btn btn-success">Konfirmasi Pembayaran</button>
+            {{Form::close()}}
         @endif
-    </article>
+        </div>
+    </div>
+    <br>
+    @if($paymentinfo!=null)
+    <h3><center>Paypal Payment Details</center></h3><br>
+    <hr>
+    <div class="table-responsive">
+        <table class='table table-bordered'>
+            <tr>
+                <td>Payment Status</td><td>:</td><td>{{$paymentinfo['payment_status']}}</td>
+            </tr>
+            <tr>
+                <td>Payment Date</td><td>:</td><td>{{$paymentinfo['payment_date']}}</td>
+            </tr>
+            <tr>
+                <td>Address Name</td><td>:</td><td>{{$paymentinfo['address_name']}}</td>
+            </tr>
+            <tr>
+                <td>Payer Email</td><td>:</td><td>{{$paymentinfo['payer_email']}}</td>
+            </tr>
+            <tr>
+                <td>Item Name</td><td>:</td><td>{{$paymentinfo['item_name1']}}</td>
+            </tr>
+            <tr>
+                <td>Receiver Email</td><td>:</td><td>{{$paymentinfo['receiver_email']}}</td>
+            </tr>
+            <tr>
+                <td>Total Payment</td><td>:</td><td>{{$paymentinfo['payment_gross']}} {{$paymentinfo['mc_currency']}}</td>
+            </tr>
+        </table>
+    </div>
+    <p>Thanks you for your order.</p>
+    <br>
+    @endif 
+  
+    @if($order->jenisPembayaran==2)
+        @if($order->status != 2)
+        <h3><center>Konfirmasi Pembayaran Via Paypal</center></h3><br>
+        <p>Silahkan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired}}</b>. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
+        {{$paypalbutton}}
+        <br>
+        @endif
+    @elseif($order->jenisPembayaran==6)
+        @if($order->status == 0)
+        <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
+        <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
+        {{$bitcoinbutton}}
+        <br>
+        @endif
+    @endif
 </section>

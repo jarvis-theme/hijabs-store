@@ -32,6 +32,7 @@
                         </li>
                         @endforeach
                     </ul>
+                    <div class="clearfix"></div>
                     @endif
                     @if(count($hasilhal) > 0 || count($hasilblog) > 0)
                     <div>

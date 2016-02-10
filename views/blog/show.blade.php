@@ -24,6 +24,9 @@
                 @endif            
           </ul>
         </div>
+        <div class="clearfix"></div>
+        {{$fbscript}}
+        {{fbcommentbox(blog_url($detailblog), '100%', '5', 'light')}}
     </article>
     <aside>
         <article>

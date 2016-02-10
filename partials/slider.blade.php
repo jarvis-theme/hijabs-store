@@ -4,10 +4,10 @@
                 @foreach(slideshow() as $slide)
                 <li>
                     <div class="slider-image">
-                        @if($slide->text == "")
-                        <a href="#">
+                        @if(!empty($slide->url))
+                        <a href="{{filter_link_url($slide->url)}}" target="_blank">
                         @else
-                        <a href="{{filter_link_url($slide->text)}}" target="_blank">
+                        <a href="#">
                         @endif
                             <img src="{{slide_image_url($slide->gambar)}}" alt="slideshow">
                         </a>

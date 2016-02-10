@@ -3,8 +3,8 @@
 <section class="page">
     <aside>
         <ul class="accordion">
-            <li><a href="{{url('member')}}">Order History</a></li>
-            <li><a href="{{url('member/profile/edit')}}">Edit Profile</a></li>
+            <li><a href="{{url('member')}}">Daftar Pembelian</a></li>
+            <li><a href="{{url('member/profile/edit')}}">Ubah Profil</a></li>
         </ul>
     </aside> 
     <article>
@@ -82,7 +82,7 @@
                                 @endif 
                             @endif
                             @if($pengaturan->checkoutType==1) 
-                                @if($item->status <= 1)
+                                @if($item->status < 1)
                                 <button onclick="window.location.href='{{url('konfirmasiorder/'.$item->id)}}'" class="btn btn-small btn-success">Edit</button>
                                 @endif 
                             @endif

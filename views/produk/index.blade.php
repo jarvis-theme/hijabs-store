@@ -38,6 +38,9 @@
                 @endif
             @endforeach
             </ul>
+            <div class="powerup">
+                {{pluginSidePowerup()}}
+            </div>
         </aside>
         <article>
             <div class="breadcrumb">
@@ -70,6 +73,7 @@
                     </li>
                     @endforeach
                 </ul>
+                <div class="clearfix"></div>
                 {{list_product(null, @$category)->links()}}
             </section>
         </article>

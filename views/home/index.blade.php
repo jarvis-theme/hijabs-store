@@ -9,7 +9,7 @@
             @foreach(best_seller() as $home)
             <li class="product">
                 <div class="post-image">
-                    <a href="{{product_url($home)}}"><img width="300" height="365" src="{{url(product_image_url($home->gambar1, 'medium'))}}" alt="{{$home->nama}}"></a>
+                    <a href="{{product_url($home)}}"><img src="{{url(product_image_url($home->gambar1, 'medium'))}}" alt="{{$home->nama}}"></a>
                 </div>
                 <div class="product-detail">
                     <h4 class="post-title"><a href="{{product_url($home)}}">{{short_description($home->nama, 21)}}</a></h4>
@@ -37,7 +37,7 @@
             @foreach(home_product() as $latest)
             <li class="product">
                 <div class="post-image">
-                    <a href="{{product_url($latest)}}"><img width="300" height="365" src="{{url(product_image_url($latest->gambar1,'medium'))}}" alt="{{$latest->nama}}"></a>
+                    <a href="{{product_url($latest)}}"><img src="{{url(product_image_url($latest->gambar1,'medium'))}}" alt="{{$latest->nama}}"></a>
                 </div>
                 @if(is_outstok($latest))
                 <span class="sold">Kosong</span>
