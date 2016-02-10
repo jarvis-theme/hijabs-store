@@ -85,7 +85,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 .table .table {
   background-color: #fff;
 }
-.footer-links img{border-radius: 5px}
+.footer-links img{border-radius: 5px}#advertising{text-align: center}
 .powerup form input[type="text"]{width: 100% !important}
 .powerup form input[type="submit"]{background-color: #e66693}
 
