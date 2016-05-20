@@ -9,7 +9,7 @@
                         @else
                         <a href="#">
                         @endif
-                            <img src="{{slide_image_url($slide->gambar)}}" alt="slideshow">
+                            <img src="{{slide_image_url($slide->gambar)}}" alt="{{$slide->title}}">
                         </a>
                         <!-- <div class="slider-content">
                             <div class="slider-desc">

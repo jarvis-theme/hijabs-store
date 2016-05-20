@@ -1,7 +1,7 @@
 <footer class="footer" role="contentinfo">
     <div id="logo">
         <a href="#">
-            {{ short_description(Theme::place('title'),30) }}
+            {{ short_description(Theme::place('title'),30) }} 
         </a>
     </div>
     <div class="footer-links">
@@ -39,6 +39,9 @@
             @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
             <li><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" /></li>
             @endif
+            @if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
+            <li><img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans"></li>
+            @endif
         </ul>
         <ul>
             <li>{{ Theme::partial('subscribe') }}</li>
@@ -48,4 +51,4 @@
     <hr>
     <p>&copy; {{ Theme::place('title') }} {{date('Y')}} All Right Reserved. Powered by <a href="http://jarvis-store.com" target="_blank">Jarvis Store</a></p>
 </footer>
-{{pluginPowerup()}}
+{{pluginPowerup()}} 

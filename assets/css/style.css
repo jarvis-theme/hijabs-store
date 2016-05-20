@@ -8,14 +8,14 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 }
 @media screen and (max-width: 767px) {
   .table-responsive {
-    width: 100%;
-    margin-bottom: 15px;
-    overflow-y: hidden;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
+	width: 100%;
+	margin-bottom: 15px;
+	overflow-y: hidden;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	border: 1px solid #ddd;
   }
   .table-responsive > .table {
-    margin-bottom: 0;
+	margin-bottom: 0;
   }
   .table-responsive > .table > thead > tr > th,
   .table-responsive > .table > tbody > tr > th,
@@ -23,10 +23,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   .table-responsive > .table > thead > tr > td,
   .table-responsive > .table > tbody > tr > td,
   .table-responsive > .table > tfoot > tr > td {
-    white-space: nowrap;
+	white-space: nowrap;
   }
   .table-responsive > .table-bordered {
-    border: 0;
+	border: 0;
   }
   .table-responsive > .table-bordered > thead > tr > th:first-child,
   .table-responsive > .table-bordered > tbody > tr > th:first-child,
@@ -34,7 +34,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   .table-responsive > .table-bordered > thead > tr > td:first-child,
   .table-responsive > .table-bordered > tbody > tr > td:first-child,
   .table-responsive > .table-bordered > tfoot > tr > td:first-child {
-    border-left: 0;
+	border-left: 0;
   }
   .table-responsive > .table-bordered > thead > tr > th:last-child,
   .table-responsive > .table-bordered > tbody > tr > th:last-child,
@@ -42,13 +42,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   .table-responsive > .table-bordered > thead > tr > td:last-child,
   .table-responsive > .table-bordered > tbody > tr > td:last-child,
   .table-responsive > .table-bordered > tfoot > tr > td:last-child {
-    border-right: 0;
+	border-right: 0;
   }
   .table-responsive > .table-bordered > tbody > tr:last-child > th,
   .table-responsive > .table-bordered > tfoot > tr:last-child > th,
   .table-responsive > .table-bordered > tbody > tr:last-child > td,
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
-    border-bottom: 0;
+	border-bottom: 0;
   }
 }
 .table {
@@ -88,6 +88,49 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 .footer-links img{border-radius: 5px}#advertising{text-align: center}
 .powerup form input[type="text"]{width: 100% !important}
 .powerup form input[type="submit"]{background-color: #e66693}
+center#paypal button[type="submit"] {
+	background: #019CDE;
+	border: none;
+	padding: 10px;
+	color: #fff;
+	border-radius: 5px;
+}
+center#paypal button[type="submit"]:hover { opacity: 0.6; cursor: pointer; }
+form[name="order"] > input[name="SAVE"] {
+	background: #B5062D; border: medium none; padding: 10px; border-radius: 5px; color: #fff;
+	font-size: 0.8em;
+}
+form[name="order"] > input[name="SAVE"]:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+.btn-veritrans { background: #00aee7; border: none; padding: 10px; color: #fff }
+.btn-veritrans:hover { cursor: pointer; opacity: 0.7 }
+.well {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #f5f5f5;
+	border-radius: 5px;
+}
+.form-control {
+	display: block;
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+		 -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
 
 @media screen and (max-width: 860px){
 	.centered-navigation ul li.nav-link{text-align: center;}
@@ -99,12 +142,22 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 	.product .product-detail .post-title a{color: #fff}
 	ins.amount{color: #000}
 }
-@media screen and (max-width: 360px){
-	.product .post-image{min-width: 210px}
-}
 @media only screen and (width: 640px){
 	.product .post-image{min-height: 195px}
 }
 @media screen and (min-width: 640px){
 	.items:nth-child(3n){margin-right:0}
+}
+@media screen and (max-width: 480px){
+	center#paypal button[type="submit"] {
+		max-width: 100%;
+		overflow: hidden;
+		font-size: 13px;
+	}
+}
+@media screen and (max-width: 360px){
+	center#paypal button[type="submit"] {
+		font-size: 10px;
+	}
+	.product .post-image{min-width: 210px}
 }
