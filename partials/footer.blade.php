@@ -23,7 +23,9 @@
         <ul>
             <li><h3>Pembayaran</h3></li>
             @foreach(list_banks() as $value)
+                @if($value->status == 1)
                 <li><img src="{{bank_logo($value)}}" alt="{{$value->bankdefault->nama}}" title="{{$value->bankdefault->nama}}" /></li>
+                @endif
             @endforeach
             @foreach(list_payments() as $pay)
                 @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
