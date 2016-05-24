@@ -48,7 +48,7 @@
             </div>
             <section>
                 <ul>
-                    @foreach(list_product(null, @$category) as $product)
+                    @foreach(list_product(null, @$category, @$collection) as $product)
                     <li class="product items">
                         <div class="post-image">
                             <a href="{{product_url($product)}}"><img width="300" height="365" src="{{url(product_image_url($product->gambar1, 'medium'))}}" alt="{{short_description($product->nama,15)}}"></a>
@@ -74,7 +74,7 @@
                     @endforeach
                 </ul>
                 <div class="clearfix"></div>
-                {{list_product(null, @$category)->links()}}
+                {{list_product(null, @$category, @$collection)->links()}}
             </section>
         </article>
     </section>
