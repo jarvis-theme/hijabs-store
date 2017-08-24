@@ -1,10 +1,14 @@
-<div id="tagline" class="title tleft"><section><h2>Member Area</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()=='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>Member Area</h2>
+    </section>
+</div>
   
 <section class="page">
     <aside>
         <ul class="accordion">
             <li><a href="{{url('member')}}">Daftar Pembelian</a></li>
-            <li><a href="{{url('member/profile/edit')}}">Ubah Profil</a></li>
+            <li><a class="active" href="{{url('member/profile/edit')}}">Ubah Profil</a></li>
         </ul>
     </aside> 
     <article>
@@ -39,7 +43,14 @@
                 </div>
                 <div>
                     <div class="picker">
-						{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara, ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'form-control'))}}
+                        <select class="form-control" name="negara" id="negara" data-rel="chosen" required>
+                            <option selected>-- Pilih Negara --</option>
+                            @foreach ($negara as $key=>$item)
+                                @if(strtolower($item)=='indonesia')
+                                <option value="1" {{$user->negara==1 || Input::old("negara")==1 ? 'selected' : ''}}>{{$item}}</option>
+                                @endif
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
@@ -49,7 +60,7 @@
                 </div>
                 <div>
                     <div class="picker">
-						{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi', 'class'=>'form-control'))}}
+                        {{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi, ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi', 'class'=>'form-control'))}}
                     </div>
                 </div>
             </div>
@@ -59,7 +70,7 @@
                 </div>
                 <div>
                     <div class="picker">
-						{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota', 'class'=>'form-control'))}}
+                        {{Form::select('kota',array('' => '-- Pilih Kota --') + $kota, ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota', 'class'=>'form-control'))}}
                     </div>
                 </div>
             </div>

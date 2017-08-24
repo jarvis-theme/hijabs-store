@@ -1,4 +1,8 @@
-<div id="tagline" class="title tleft"><section><h2>Kontak Kami</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()=='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>Kontak Kami</h2>
+    </section>
+</div>
     
 <section>
     <section class="middle">
@@ -20,12 +24,12 @@
                             <textarea class="input textarea" rows="3" name="messageKontak" required></textarea>
                         </li>
                     </ul>
-                    <div class="medium metro rounded btn primary"><button class="main">Kirim</button></div>
-                </form>     
+                    <div class="medium metro rounded btn primary p0"><button class="main m0">Kirim</button></div>
+                </form>
             </div>
         </article>
         <article>
-            <div class="title"><h2>Alamat</h2></div>
+            <div class="title mt15"><h2>Alamat</h2></div>
             <div class="address">
                 <address>
                     <h6>{{Theme::place('title')}}</h6>

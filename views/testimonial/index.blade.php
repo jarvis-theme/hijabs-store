@@ -1,10 +1,14 @@
-<div id="tagline" class="title tleft"><section><h2>Testimonial</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()!='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>Testimonial</h2>
+    </section>
+</div>
     
 <section class="blog">
     <article class="testi">
-        @foreach (list_testimonial() as $items)  
+        @foreach (list_testimonial() as $items)
         <section>
-            <h2><a>{{$items->nama}}</a></h2>                   
+            <h2>{{$items->nama}}</h2>
             <div class="line"></div>
             <p>{{$items->isi}}</p>
         </section>

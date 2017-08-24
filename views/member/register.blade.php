@@ -1,4 +1,8 @@
-<div id="tagline" class="title tleft"><section><h2>Register</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()=='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>Register</h2>
+    </section>
+</div>
 
 <section class="page">
     <aside>
@@ -55,7 +59,14 @@
                 </div>
                 <div>
                     <div class="picker">
-                        {{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old('negara'),array('required', "id"=>"negara", "data-rel"=>"chosen", "class"=>"wide", "name"=>"negara", "onchange"=>"searchProvinsi(this.value)"))}}
+                        <select class="wide form-control" name="negara" id="negara" data-rel="chosen" required>
+                            <option selected>-- Pilih Negara --</option>
+                            @foreach ($negara as $key=>$item)
+                                @if(strtolower($item)=='indonesia')
+                                <option value="1" {{Input::old('negara')==1 ? 'selected' : ''}}>{{$item}}</option>
+                                @endif
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
@@ -65,7 +76,7 @@
                 </div>
                 <div>
                     <div class="picker">
-                        {{Form::select('provinsi', array('' => '-- Pilih Provinsi --') + $provinsi, Input::old('provinsi'), array('required', "id"=>"provinsi", "data-rel"=>"chosen", "name"=>"provinsi", "class"=>"wide", "onchange"=>"searchKabupaten(this.value)"))}}
+                        {{Form::select('provinsi', array('' => '-- Pilih Provinsi --') + $provinsi, Input::old('provinsi'), array('required', "id"=>"provinsi", "data-rel"=>"chosen", "name"=>"provinsi", "class"=>"wide form-control", "onchange"=>"searchKabupaten(this.value)"))}}
                     </div>
                 </div>
             </div>
@@ -75,7 +86,7 @@
                 </div>
                 <div>
                     <div class="picker">
-                        {{Form::select('kota', array('' => '-- Pilih Kota --') + $kota, Input::old('kota'), array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"wide", "name"=>"kota"))}}
+                        {{Form::select('kota', array('' => '-- Pilih Kota --') + $kota, Input::old('kota'), array('required', "id"=>"kota", "data-rel"=>"chosen", "class"=>"wide form-control", "name"=>"kota"))}}
                     </div>
                 </div>
             </div>
@@ -107,7 +118,7 @@
             <div class="field row">
                 <div>
                     <label class="checkbox" for="check2">
-                        <input name="readme" id="check2" value="1" type="checkbox" />
+                        <input name="readme" id="check2" value="1" type="checkbox" checked />
                         <span></span> Saya telah membaca dan menyetujui <a href="{{URL::to('service')}}" target="_blank" >Syarat dan Ketentuan</a>
                     </label>
                 </div>

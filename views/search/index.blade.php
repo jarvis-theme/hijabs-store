@@ -1,4 +1,8 @@
-<div id="tagline" class="title tleft"><section><h2>Hasil Pencarian</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()!='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>Hasil Pencarian</h2>
+    </section>
+</div>
 
 <section>
     <section class="page">

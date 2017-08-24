@@ -1,4 +1,8 @@
-<div id="tagline" class="title tleft"><section><h2>List Produk</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()!='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>List Produk</h2>
+    </section>
+</div>
 
 <section>
     <section class="page">
@@ -41,6 +45,15 @@
             <div class="powerup">
                 {{pluginSidePowerup()}}
             </div>
+            @if(count(vertical_banner()) > 0)
+            @foreach(vertical_banner() as $banners)
+            <div class="banner">
+                <a href="{{URL::to($banners->url)}}">
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
+                </a>
+            </div>
+            @endforeach
+            @endif
         </aside>
         <article>
             <div class="breadcrumb">

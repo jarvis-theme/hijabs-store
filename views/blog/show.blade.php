@@ -1,4 +1,8 @@
-<div id="tagline" class="title tleft"><section><h2>Detail Blog</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()=='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>Detail Blog</h2>
+    </section>
+</div>
     
 <section class="blog">
     <article>
@@ -21,7 +25,7 @@
                     <li class="page-next fright"><a href="{{$next->slug}}">next</a></li>
                 @else
                     <li></li>
-                @endif            
+                @endif
           </ul>
         </div>
         <div class="clearfix"></div>

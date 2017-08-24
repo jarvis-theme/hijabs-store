@@ -1,9 +1,13 @@
-<div id="tagline" class="title tleft"><section><h2>Lupa Password</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()=='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>Lupa Password</h2>
+    </section>
+</div>
 
 <section>
     <section class="middle">
         <article>
-            <div class="title"><h2>Pelanggan Baru</h2></div>
+            <div class="title mt15"><h2>Pelanggan Baru</h2></div>
             <div class="address">
                 <p>Nikmati kemudahan berbelanja dengan mendaftar sebagai member. Cepat dan mudah dalam bertransaksi. Mudah untuk mengetahui status dan riwayat order kamu.</p>
                 <a href="{{url('member/create')}}" class="btn btn-info">Daftar</a>

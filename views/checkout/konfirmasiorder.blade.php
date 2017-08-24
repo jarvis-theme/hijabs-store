@@ -1,4 +1,8 @@
-<div id="tagline" class="title tleft"><section><h2>Konfirmasi Order</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()=='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>Konfirmasi Order</h2>
+    </section>
+</div>
 
 <section>
     <div class="table-responsive">

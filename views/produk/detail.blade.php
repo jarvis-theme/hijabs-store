@@ -1,4 +1,8 @@
-<div id="tagline" class="title tleft"><section><h2>{{short_description($produk->nama, 50)}}</h2></section></div>
+<div id="tagline" class="title tleft {{logo_image_url()!='' ? 'no-logo' : ''}}">
+    <section>
+        <h2>{{short_description($produk->nama, 50)}}</h2>
+    </section>
+</div>
 
 <section>
     <section class="page">
@@ -41,6 +45,15 @@
             <div class="powerup">
                 {{pluginSidePowerup()}}
             </div>
+            @if(count(vertical_banner()) > 0)
+            @foreach(vertical_banner() as $banners)
+            <div class="banner">
+                <a href="{{URL::to($banners->url)}}">
+                    {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
+                </a>
+            </div>
+            @endforeach
+            @endif
         </aside>
         <article>
             <div class="breadcrumb">
@@ -51,7 +64,7 @@
                     <ul>
                         <li class="product">
                             <div class="post-image">
-                                <a class="fancybox" title="{{$produk->nama}}" href="{{product_image_url($produk->gambar1,'large')}}"><img width="300" height="365" src="{{product_image_url($produk->gambar1, 'medium')}}" alt="{{$produk->nama}}"></a>
+                                <a class="fancybox" title="{{$produk->nama}}" href="{{product_image_url($produk->gambar1,'large')}}"><img class="imgpro" width="300" height="365" src="{{product_image_url($produk->gambar1, 'medium')}}" alt="{{$produk->nama}}"></a>
                             </div>
                         </li>
                         @if($produk->gambar2 != '')
@@ -77,7 +90,7 @@
                         @endif
                     </ul>
                 </article>
-                <article>
+                <article class="desc">
                     <div class="title">
                       <h4>{{short_description($produk->nama,70)}}</h4>
                     </div>
@@ -94,15 +107,15 @@
                             <select class="form-control">
                                 <option value="">-- Pilih Opsi --</option>
                                 @foreach ($opsiproduk as $key => $opsi)
-                                <option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}}>{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}</option>
+                                <option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}}>{{ucwords($opsi->opsi1).($opsi->opsi2=='' ? '':' / '.ucwords($opsi->opsi2)).($opsi->opsi3=='' ? '':' / '.ucwords($opsi->opsi3))}} - {{price($opsi->harga)}}</option>
                                 @endforeach
                             </select>
                         </div>
                         @endif
-                        <li class="append field">
-                            <input class="narrow text input" type="number" min="1" value="1" name="qty">
+                        <div class="append field">
+                            <input class="narrow text input" type="number" min="1" value="1" name="qty" pattern="[0-9]">
                             <button class="main" type="submit">Beli</button>
-                        </li>
+                        </div>
                         <div class="desc">
                             {{sosialShare(product_url($produk))}}
                         </div>

@@ -7,19 +7,19 @@
 <html class="no-js"> 
 <!--<![endif]-->
     <head>
-        {{ Theme::partial('seostuff') }}    
-        {{ Theme::asset()->styles() }}  
-        {{ Theme::partial('defaultcss') }}  
+        {{ Theme::partial('seostuff') }} 
+        {{ Theme::asset()->styles() }} 
+        {{ Theme::partial('defaultcss') }} 
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-        {{ Theme::partial('header') }}  
-        {{ Theme::place('content') }}     
-        {{ Theme::partial('footer') }}  
+        {{ Theme::partial('header') }} 
+        {{ Theme::place('content') }} 
+        {{ Theme::partial('footer') }} 
 
-        {{ Theme::partial('defaultjs') }}   
-        {{ Theme::partial('analytic') }}    
+        {{ Theme::partial('defaultjs') }} 
+        {{ Theme::partial('analytic') }} 
     </body>
 </html>

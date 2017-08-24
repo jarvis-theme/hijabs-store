@@ -57,10 +57,10 @@
     </section>
 </div>
 <div class="banner">
-    <section>
+    <section class="mb30 p0">
         @foreach(horizontal_banner() as $banners)
         <a href="{{URL::to($banners->url)}}">
-            {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive'))}}
+            {{HTML::image(banner_image_url($banners->gambar),'Info Promo',array('class'=>'img-responsive mb10'))}}
         </a>
         @endforeach
     </section>
